@@ -206,7 +206,7 @@ while not dead and not done:
     item = current_street.get_item()
     if item is not None:
         item.describe()
-    
+  
     if current_street.end:
         done = True
         print('Ви прибули до місця призначення. Вітаю!')
