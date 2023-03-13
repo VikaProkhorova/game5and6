@@ -74,6 +74,9 @@ class Character:
             print(self.name + " сказав: " + self.conversation)
         else:
             print(self.name + " не хоче говорити")
+    def give_money(self):
+        """Give money to enemy"""
+        print('Ви дали гроші')
 
 class Enemy(Character):
     """Class of enemy of streets"""
@@ -92,9 +95,6 @@ class Enemy(Character):
     def run(self):
         """Run"""
         print('Ви втікли')
-    def give_money(self):
-        """Give money to enemy"""
-        print('Ви дали гроші')
 
 class DangerousEnemy(Enemy):
     """Class of dangerous enemy(killers, maniac)"""
