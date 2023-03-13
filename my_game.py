@@ -250,6 +250,7 @@ while not dead and not done:
             or isinstance(inhabitant, DangerousEnemy):
             inhabitant.run()
             current_street.character = None
+            current_street = current_street.move('спереду')
         else:
             print('Немає причини біжати, бо немає небезпеки')
     elif command == 'закричати':
