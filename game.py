@@ -111,3 +111,13 @@ class Item():
     def get_name(self):
         """Return name of item"""
         return self.name
+
+class Friend(Character):
+    """Class of friends"""
+    def __init__(self, name, description):
+        super().__init__(name, description)
+        self.feeling = None
+
+    def hug(self):
+        """Hug"""
+        print(self.name + " hugs you back!")
