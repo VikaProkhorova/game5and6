@@ -1,4 +1,5 @@
 """Classes for game"""
+NUMBER_OF_KILL = 0
 class Room():
     """Rooms of game"""
     def __init__(self, name):
@@ -75,7 +76,6 @@ class Enemy(Character):
         super().__init__(name, who)
         self.weakness = None
         self.conversation = None
-        self.kills = 0
 
     def set_weakness(self, product):
         """Add weakness of enemy"""
@@ -84,7 +84,8 @@ class Enemy(Character):
     def fight(self, item):
         """Fight with enemy"""
         if item == self.weakness:
-            self.kills+=1
+            global NUMBER_OF_KILL
+            NUMBER_OF_KILL+=1
             print("You fend " + self.name + " off with the " + item)
             return True
         print(self.name + " crushes you, puny adventurer")
@@ -92,7 +93,7 @@ class Enemy(Character):
 
     def get_defeated(self):
         """Return number of kills enemies"""
-        return self.kills
+        return NUMBER_OF_KILL
 
 class Item():
     """Class Item for items in room"""
