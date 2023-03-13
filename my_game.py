@@ -217,7 +217,10 @@ while not dead and not done:
     command = input("> ")
 
     if command == "вперед":
-        current_street = current_street.move('спереду')
+        if inhabitant is None or isinstance(inhabitant, Friend):
+            current_street = current_street.move('спереду')
+        else:
+            print('Ви неможете піти через небезпеку')
     elif command == "назад":
         current_street = current_street.move('позаду')
     elif command == "поговорити":
