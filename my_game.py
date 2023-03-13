@@ -19,7 +19,7 @@ class Street():
         print(self.name)
         print("--------------------")
         print(self.description)
-        for street in self.side[::-1]:
+        for street in self.side:
             print(f'{street[0].name} {street[1]}')
 
     def link_street(self, other_street, side):
@@ -92,6 +92,9 @@ class Enemy(Character):
     def run(self):
         """Run"""
         print('Ви втікли')
+    def give_money(self):
+        """Give money to enemy"""
+        print('Ви дали гроші')
 
 class DangerousEnemy(Enemy):
     """Class of dangerous enemy(killers, maniac)"""
@@ -191,7 +194,7 @@ backpack = []
 dead = False
 done = False
 
-while not dead or not done:
+while not dead and not done:
 
     print("\n")
     current_street.get_details()
@@ -218,6 +221,20 @@ while not dead or not done:
     elif command == "поговорити":
         if inhabitant is not None:
             inhabitant.talk()
+        else:
+            print('Немає з ким говорити')
+    elif command == 'дати гроші':
+        if inhabitant is not None:
+            if 'Гроші' in backpack:
+                inhabitant.give_money()
+                backpack.pop(backpack.index('Гроші'))
+                if isinstance(inhabitant, Enemy) or isinstance(inhabitant, DangerousEnemy):
+                    print('Злодій пішов')
+                    current_street.character = None
+            else:
+                print('Ви не маєте грошей :(')
+        else:
+            print('Немає кому дати грошей')
     elif command == "обійняти":
         if inhabitant is not None:
             if isinstance(inhabitant, Friend):
@@ -264,4 +281,3 @@ while not dead or not done:
             print("Немає, що брати")
     else:
         print("Я не знаю як виконати команду " + command)
-
