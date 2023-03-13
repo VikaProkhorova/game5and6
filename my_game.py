@@ -209,13 +209,15 @@ while not dead and not done:
     item = current_street.get_item()
     if item is not None:
         item.describe()
+    if current_street.end:
+        done = True
+        print('Ви добрались до цілі. Вітаю!')
+        break
 
     command = input("> ")
 
     if command == "вперед":
         current_street = current_street.move('спереду')
-        if current_street.end:
-            done = True
     elif command == "назад":
         current_street = current_street.move('позаду')
     elif command == "поговорити":
