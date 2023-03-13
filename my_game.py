@@ -203,15 +203,13 @@ while not dead and not done:
     if inhabitant is not None:
         inhabitant.describe()
 
-    if current_street.end:
-        print('Ви прибули до місця призначення. Вітаю!')
-
     item = current_street.get_item()
     if item is not None:
         item.describe()
+    
     if current_street.end:
         done = True
-        print('Ви добрались до цілі. Вітаю!')
+        print('Ви прибули до місця призначення. Вітаю!')
         break
 
     command = input("> ")
