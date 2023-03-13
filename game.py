@@ -119,5 +119,5 @@ class Friend(Character):
         self.feeling = None
 
     def hug(self):
-        """Hug"""
+        """Hug friend"""
         print(self.name + " hugs you back!")
